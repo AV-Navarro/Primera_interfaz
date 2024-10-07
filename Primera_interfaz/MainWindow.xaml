@@ -5,9 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Primera_interfaz"
         mc:Ignorable="d"
-        Title="Primera Interfaz" Height="450" Width="800">
+        Title="Primera Interfaz" Height="800" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="123,201,0,0" TextWrapping="Wrap" Text="Hola" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- DataGrid para mostrar los empleados -->
+        <!-- Las columnas no se generarán automáticamente -->
+        <!-- El DataGrid se colocará en la primera fila del Grid -->
+        <!-- No permite la edición de las celdas dentro del DataGrid -->
+        <!-- Solo se puede seleccionar una fila a la vez -->
+
+        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10" IsReadOnly="True" SelectionMode="Single"> 
+
+            <!--Color Fuente / Estilo de Columna-->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Turquoise"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <!--Texto Cabecera Columna & Bindings -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Empleado" Binding="{Binding IdEmpleado}" Width="150"/>
+                <DataGridTextColumn Header="Nombre Empleado" Binding="{Binding NombreEmpleado}" Width="150"/>
+                <DataGridTextColumn Header="Dirección Empleado" Binding="{Binding DireccionEmpleado}" Width="150"/>
+                <DataGridTextColumn Header="Ciudad Empleado" Binding="{Binding CiudadEmpleado}" Width="150"/>
+                <DataGridTextColumn Header="Pais Empleado" Binding="{Binding PaisEmpleado}" Width="*"/>
+            </DataGrid.Columns>       
+
+        </DataGrid>
+
+
+        <!-- Botones CRUD en la parte inferior -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Crear" Width="100" Margin="5" Click="CrearCliente" />
+            <Button Content="Leer" Width="100" Margin="5" Click="Leer_Click"/>
+            <Button Content="Actualizar" Width="100" Margin="5" Click="Actualizar_Click" />
+            <Button Content="Eliminar" Width="100" Margin="5" Click="Eliminar_Click"/>
+        </StackPanel>
 
     </Grid>
 </Window>
