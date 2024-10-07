@@ -34,22 +34,30 @@ namespace Primera_interfaz
             txtId.Text = (empleados.Count + 1).ToString();
         }
 
-        private void Agregar_Click(object sender,RoutedEventArgs e)
+        private void Agregar_Click(object sender, RoutedEventArgs e)
         {
+            //Verificar que no esten vacíos los campos
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtDireccion.Text) ||
+                string.IsNullOrWhiteSpace(txtCiudad.Text) ||
+                string.IsNullOrWhiteSpace(txtPais.Text))
+            {
+                MessageBox.Show("Por favor completa todos los campos.");
+                return; // No continúa si hay campos vacíos
+            }
+
             var nuevoEmpleado = new Empleado
             {
-                //Se genera el ID
-                IdEmpleado = empleadosList.Count + 1,
+                IdEmpleado = empleadosList.Count + 1, // Aquí generamos el ID
                 NombreEmpleado = txtNombre.Text,
                 DireccionEmpleado = txtDireccion.Text,
                 CiudadEmpleado = txtCiudad.Text,
                 PaisEmpleado = txtPais.Text
-
             };
 
             empleadosList.Add(nuevoEmpleado);
-            MessageBox.Show("Empleado agregado con éxito!!");
-            Close();
-        }           
+            MessageBox.Show("Empleado agregado exitosamente!");
+            Close(); // Cerrar la ventana después de agregar
+        }
     }
 }
