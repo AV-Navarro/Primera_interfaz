@@ -24,12 +24,7 @@ namespace Primera_interfaz
         public MainWindow()
         {
             InitializeComponent();
-            // Inicializamos la lista de empleados
-            empleados = new ObservableCollection<Empleado>
-            {
-                new Empleado { IdEmpleado = 1, NombreEmpleado = "Juan Pérez", DireccionEmpleado = "Calle 1", CiudadEmpleado = "Madrid", PaisEmpleado = "España" },
-                new Empleado { IdEmpleado = 2, NombreEmpleado = "Ana García", DireccionEmpleado = "Calle 2", CiudadEmpleado = "Barcelona", PaisEmpleado = "España" }
-            };
+            empleados = new ObservableCollection<Empleado>();
             // Asignamos la lista al DataGrid
             DataGridXAML.ItemsSource = empleados;
         }
@@ -38,16 +33,10 @@ namespace Primera_interfaz
         private void CrearCliente(object sender, RoutedEventArgs e)
         {
             // Añadimos un nuevo empleado
-            var nuevoEmpleado = new Empleado
-            {
-                IdEmpleado = empleados.Count + 1,
-                NombreEmpleado = "Nuevo Empleado",
-                DireccionEmpleado = "Nueva Dirección",
-                CiudadEmpleado = "Nueva Ciudad",
-                PaisEmpleado = "Nuevo País"
-            };
-            empleados.Add(nuevoEmpleado);
+            ClienteWindow1 clienteWindow = new ClienteWindow1(empleados);
+            clienteWindow.ShowDialog(); // Muestra la ventana como un diálogo modal
         }
+    
 
         // Leer (Seleccionar) un empleado
         private void Leer_Click(object sender, RoutedEventArgs e)

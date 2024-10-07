@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Primera_interfaz.Clases
 {
-    class Empleado
+    public class Empleado
     {
         public int IdEmpleado { get; set; }
         public string NombreEmpleado { get; set; }
