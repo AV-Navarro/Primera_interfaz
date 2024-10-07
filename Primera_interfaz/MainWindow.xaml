@@ -27,6 +27,8 @@
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="FontFamily" Value="Ariel Black"/>
                 </Style>
             </DataGrid.Resources>
 
