@@ -57,17 +57,15 @@ namespace Primera_interfaz
 
         // Actualizar un empleado seleccionado
         private void Actualizar_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             if (DataGridXAML.SelectedItem is Empleado empleadoSeleccionado)
             {
-                empleadoSeleccionado.NombreEmpleado = "Empleado Actualizado";
-                empleadoSeleccionado.DireccionEmpleado = "Dirección Actualizada";
-                empleadoSeleccionado.CiudadEmpleado = "Ciudad Actualizada";
-                empleadoSeleccionado.PaisEmpleado = "País Actualizado";
+                Editar editarWindow = new Editar(empleadoSeleccionado, empleados);
+                editarWindow.ShowDialog();
 
-                // Refresca la vista para mostrar los cambios
                 DataGridXAML.Items.Refresh();
             }
+
             else
             {
                 MessageBox.Show("Por favor selecciona un empleado.");
