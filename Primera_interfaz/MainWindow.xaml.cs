@@ -22,8 +22,7 @@ namespace Primera_interfaz
     {
         // Lista en memoria para almacenar los empleados
         private ObservableCollection<Empleado> empleados;
-        //private ObservableCollection<Empleado> empleadosFiltrados;
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -140,6 +139,11 @@ namespace Primera_interfaz
                     "Confirmar eliminación",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning);
+
+                DataGridXAML.Items.Refresh();
+
+                // Deseleccionar el empleado 
+                DataGridXAML.SelectedItem = null;
 
                 // Si el usuario selecciona "Sí", procedemos con la eliminación
                 if (resultado == MessageBoxResult.Yes)

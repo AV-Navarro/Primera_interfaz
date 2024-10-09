@@ -48,7 +48,7 @@ namespace Primera_interfaz
             empleadoSeleccionado.CiudadEmpleado = txtCiudad.Text;
             empleadoSeleccionado.PaisEmpleado = txtPais.Text;                        
 
-            MessageBox.Show("Empleado editado exitosamente!");
+            MessageBox.Show("Empleado editado con éxito!");
             Close(); // Cerrar la ventana después de editar
         }
     

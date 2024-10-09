@@ -66,26 +66,26 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
             <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="CrearCliente">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Imagenes/crear.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <Image Source="/Imagenes/create.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
                     <TextBlock Text="Crear" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
             <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Leer_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Imagenes/leer.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <Image Source="/Imagenes/read.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
                     <TextBlock Text="Leer" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
             <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Actualizar_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Imagenes/actualizar.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <Image Source="/Imagenes/update.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
                     <TextBlock Text="Actualizar" VerticalAlignment="Center"/>
                 </StackPanel>
 
             </Button>
             <Button  Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Eliminar_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Imagenes/eliminar.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <Image Source="/Imagenes/papelera.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
                     <TextBlock Text="Eliminar" VerticalAlignment="Center"/>                    
                 </StackPanel>
             </Button>            

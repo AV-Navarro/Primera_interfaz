@@ -7,22 +7,22 @@
         Title="Agregar Empleado" Height="300" Width="400" ResizeMode="NoResize" Icon="Imagenes/cliente.png">
     <Grid>
         <StackPanel>
-            <TextBlock Text="ID:"/>
-            <TextBox x:Name="txtId" IsReadOnly="True" Margin="0,0,0,10"/>
+            <TextBlock Text="ID:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtId" IsReadOnly="True" Margin="10,0,10,10"/>
 
-            <TextBlock Text="Nombre:"/>
-            <TextBox x:Name="txtNombre"  Margin="0,0,0,10"/>
+            <TextBlock Text="Nombre:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtNombre"  Margin="10,0,10,10"/>
 
-            <TextBlock Text="Dirección:"/>
-            <TextBox x:Name="txtDireccion" Margin="0,0,0,10"/>
-            
-            <TextBlock Text="Ciudad:"/>
-            <TextBox x:Name="txtCiudad" Margin="0,0,0,10"/>
+            <TextBlock Text="Dirección:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtDireccion" Margin="10,0,10,10"/>
 
-            <TextBlock Text="País:"/>
-            <TextBox x:Name="txtPais" Margin="0,0,0,10"/>
+            <TextBlock Text="Ciudad:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtCiudad" Margin="10,0,10,10"/>
 
-            <Button Content="Agregar Cliente" Background="AliceBlue"  Click="Agregar_Click" FontWeight="Bold" FontStyle="Italic" />
+            <TextBlock Text="País:" Margin="10,0,10,0"/>
+            <TextBox x:Name="txtPais" Margin="10,0,10,10"/>
+
+            <Button Content="Agregar Empleado" Background="AliceBlue"  Click="Agregar_Click" FontWeight="Bold" FontStyle="Italic" Margin="10,0,10,10" />
             
         </StackPanel>
         
