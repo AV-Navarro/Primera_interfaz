@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Primera_interfaz"
         mc:Ignorable="d"            
-        Title="Primera Interfaz" Height="800" Width="800" >
-    
+        Title="Primera Interfaz" Height="800" Width="800" Icon="Imagenes/interfaz.png" >
     <Grid>
        
         <Grid.RowDefinitions>
@@ -16,7 +15,7 @@
 
         <!-- TextBox para filtrar la lista -->
         <!-- TextChanged="TxtBusqueda_TextChanged" metódo a declarar para manejar los cambio-->
-        <TextBox x:Name="txtBusqueda" Grid.Column="0" Grid.Row="0" Margin="655,10,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"
+        <TextBox x:Name="txtBusqueda" Margin="655,10,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"
          TextWrapping="Wrap" TextChanged="TxtBusqueda_TextChanged"/>
         <Image Source="/Imagenes/lupa.png" Width="20" Height="20" VerticalAlignment="Top" Margin="500,10,0,0" />
 
@@ -54,13 +53,32 @@
 
         <!-- Botones CRUD en la parte inferior -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Crear" Width="100" Margin="5" BorderBrush="Black" Click="CrearCliente" />
-            <Button Content="Leer" Width="100" Margin="5" BorderBrush="Black" Click="Leer_Click"/>
-            <Button Content="Actualizar" Width="100" Margin="5" BorderBrush="Black" Click="Actualizar_Click" />
-            <Button Content="Eliminar" Width="100" Margin="5" BorderBrush="Black" Click="Eliminar_Click"/>            
-        </StackPanel>
+            <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="CrearCliente">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/crear.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Crear" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Leer_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/leer.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Leer" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Actualizar_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/actualizar.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Actualizar" VerticalAlignment="Center"/>
+                </StackPanel>
 
-        
+            </Button>
+            <Button  Width="100" Height="50" Margin="5" BorderBrush="Black" Click="Eliminar_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/eliminar.png" HorizontalAlignment="Left" Height="25" Width="25" Margin="0,0,5,0"/>
+                    <TextBlock Text="Eliminar" VerticalAlignment="Center"/>                    
+                </StackPanel>
+            </Button>            
+        </StackPanel>       
 
     </Grid>
 </Window>
