@@ -6,10 +6,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Primera_interfaz.Clases;
+
 
 namespace Primera_interfaz
 {
@@ -20,13 +22,43 @@ namespace Primera_interfaz
     {
         // Lista en memoria para almacenar los empleados
         private ObservableCollection<Empleado> empleados;
+        //private ObservableCollection<Empleado> empleadosFiltrados;
 
         public MainWindow()
         {
             InitializeComponent();
             empleados = new ObservableCollection<Empleado>();
+
+
             // Asignamos la lista al DataGrid
+            DataGridXAML.ItemsSource = null;
             DataGridXAML.ItemsSource = empleados;
+
+            // Crear un empleado al iniciar (opcional)
+            Empleado primerEmpleado = new Empleado
+            {
+                IdEmpleado = 1,
+                NombreEmpleado = "María López",
+                DireccionEmpleado = "Av. Principal 456",
+                CiudadEmpleado = "Barcelona",
+                PaisEmpleado = "España"
+            };
+
+            empleados.Add(primerEmpleado); // Agregar el empleado a la lista
+        }
+
+        // Método filtrar búsqueda
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            //Obtengo el texto del TexBox
+            string textoBusqueda = txtBusqueda.Text.ToLower();
+
+            //Filtrado
+            var empleadoFiltrados = empleados.Where(emp => emp.NombreEmpleado.ToLower().Contains(textoBusqueda)).ToList();
+
+            //Actualizo el DataGRid
+            DataGridXAML.ItemsSource = null;
+            DataGridXAML.ItemsSource = empleadoFiltrados;
         }
 
         // Crear un nuevo empleado
@@ -36,7 +68,7 @@ namespace Primera_interfaz
             ClienteWindow1 clienteWindow = new ClienteWindow1(empleados);
             clienteWindow.ShowDialog(); // Muestra la ventana como un diálogo modal
         }
-    
+
 
         // Leer (Seleccionar) un empleado
         private void Leer_Click(object sender, RoutedEventArgs e)
@@ -57,7 +89,7 @@ namespace Primera_interfaz
 
         // Actualizar un empleado seleccionado
         private void Actualizar_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             if (DataGridXAML.SelectedItem is Empleado empleadoSeleccionado)
             {
                 Editar editarWindow = new Editar(empleadoSeleccionado, empleados);
@@ -71,6 +103,7 @@ namespace Primera_interfaz
                 MessageBox.Show("Por favor selecciona un empleado.");
             }
         }
+
 
         // Eliminar un empleado seleccionado
         private void Eliminar_Click(object sender, RoutedEventArgs e)
@@ -97,5 +130,5 @@ namespace Primera_interfaz
         }
     }
 
-    
+
 }

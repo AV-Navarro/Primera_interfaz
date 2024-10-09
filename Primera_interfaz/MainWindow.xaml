@@ -4,13 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Primera_interfaz"
-        mc:Ignorable="d"
-        Title="Primera Interfaz" Height="800" Width="800">
+        mc:Ignorable="d"            
+        Title="Primera Interfaz" Height="800" Width="800" >
+    
     <Grid>
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+
+        <!-- TextBox para filtrar la lista -->
+        <!-- TextChanged="TxtBusqueda_TextChanged" metódo a declarar para manejar los cambio-->
+        <TextBox x:Name="txtBusqueda" Grid.Column="0" Grid.Row="0" Margin="655,10,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"
+         TextWrapping="Wrap" TextChanged="TxtBusqueda_TextChanged"/>
+        <Image Source="/Imagenes/lupa.png" Width="20" Height="20" VerticalAlignment="Top" Margin="500,10,0,0" />
+
 
         <!-- DataGrid para mostrar los empleados -->
         <!-- Las columnas no se generarán automáticamente -->
@@ -18,7 +27,7 @@
         <!-- No permite la edición de las celdas dentro del DataGrid -->
         <!-- Solo se puede seleccionar una fila a la vez -->
 
-        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10" IsReadOnly="True" SelectionMode="Single"> 
+        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10,40,10,0" IsReadOnly="True" SelectionMode="Single"> 
 
             <!--Color Fuente / Estilo de Columna-->
             <DataGrid.Resources>
@@ -43,14 +52,15 @@
 
         </DataGrid>
 
-
         <!-- Botones CRUD en la parte inferior -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Crear" Width="100" Margin="5" Click="CrearCliente" />
-            <Button Content="Leer" Width="100" Margin="5" Click="Leer_Click"/>
-            <Button Content="Actualizar" Width="100" Margin="5" Click="Actualizar_Click" />
-            <Button Content="Eliminar" Width="100" Margin="5" Click="Eliminar_Click"/>
+            <Button Content="Crear" Width="100" Margin="5" BorderBrush="Black" Click="CrearCliente" />
+            <Button Content="Leer" Width="100" Margin="5" BorderBrush="Black" Click="Leer_Click"/>
+            <Button Content="Actualizar" Width="100" Margin="5" BorderBrush="Black" Click="Actualizar_Click" />
+            <Button Content="Eliminar" Width="100" Margin="5" BorderBrush="Black" Click="Eliminar_Click"/>            
         </StackPanel>
+
+        
 
     </Grid>
 </Window>
