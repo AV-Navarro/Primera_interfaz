@@ -67,6 +67,11 @@ namespace Primera_interfaz
             // Añadimos un nuevo empleado
             ClienteWindow1 clienteWindow = new ClienteWindow1(empleados);
             clienteWindow.ShowDialog(); // Muestra la ventana como un diálogo modal
+
+            DataGridXAML.Items.Refresh();
+
+            // Deseleccionar el empleado 
+            DataGridXAML.SelectedItem = null;
         }
 
 
@@ -80,6 +85,11 @@ namespace Primera_interfaz
                                 $"Dirección: {empleadoSeleccionado.DireccionEmpleado}\n" +
                                 $"Ciudad: {empleadoSeleccionado.CiudadEmpleado}\n" +
                                 $"País: {empleadoSeleccionado.PaisEmpleado}", "Detalles del Empleado");
+
+                DataGridXAML.Items.Refresh();
+
+                // Deseleccionar el empleado 
+                DataGridXAML.SelectedItem = null;
             }
             else
             {
@@ -96,11 +106,25 @@ namespace Primera_interfaz
                 editarWindow.ShowDialog();
 
                 DataGridXAML.Items.Refresh();
+
+                // Deseleccionar el empleado 
+                DataGridXAML.SelectedItem = null;
             }
 
             else
             {
                 MessageBox.Show("Por favor selecciona un empleado.");
+            }
+        }
+
+        //Metodo para deseleccionar
+        private void DataGridXAML_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verificar si el clic no fue en una celda
+            if (!(e.OriginalSource is DataGridCell))
+            {
+                // Deseleccionar cualquier selección existente
+                DataGridXAML.SelectedItem = null;
             }
         }
 
@@ -121,6 +145,10 @@ namespace Primera_interfaz
                 if (resultado == MessageBoxResult.Yes)
                 {
                     empleados.Remove(empleadoSeleccionado);
+                    DataGridXAML.Items.Refresh();
+
+                    // Deseleccionar el empleado después de eliminar
+                    DataGridXAML.SelectedItem = null;
                 }
             }
             else

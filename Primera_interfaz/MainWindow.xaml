@@ -25,8 +25,9 @@
         <!-- El DataGrid se colocará en la primera fila del Grid -->
         <!-- No permite la edición de las celdas dentro del DataGrid -->
         <!-- Solo se puede seleccionar una fila a la vez -->
-
-        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10,40,10,0" IsReadOnly="True" SelectionMode="Single"> 
+        <!-- Evento del raton clikeo dentro de la tabla y deselecciona-->
+        
+        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10,40,10,0" IsReadOnly="True" SelectionMode="Single" MouseDown="DataGridXAML_MouseDown"> 
 
             <!--Color Fuente / Estilo de Columna-->
             <DataGrid.Resources>
@@ -47,7 +48,17 @@
                 <DataGridTextColumn Header="Dirección Empleado" Binding="{Binding DireccionEmpleado}" Width="150"/>
                 <DataGridTextColumn Header="Ciudad Empleado" Binding="{Binding CiudadEmpleado}" Width="150"/>
                 <DataGridTextColumn Header="Pais Empleado" Binding="{Binding PaisEmpleado}" Width="*"/>
-            </DataGrid.Columns>       
+            </DataGrid.Columns>
+
+            <!-- Seleccionar click derecho del ratón y desplegar un menú-->
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Elminar" Click="Eliminar_Click"/>
+                    <MenuItem Header="Editar Empleado" Click="Actualizar_Click"/>
+                    <MenuItem Header="Crear Empleado" Click="CrearCliente"/>
+                    <MenuItem Header="Leer Empleado" Click="Leer_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
 
         </DataGrid>
 
