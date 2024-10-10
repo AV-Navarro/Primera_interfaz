@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Primera_interfaz"
         mc:Ignorable="d"
-        Title="Editar" Height="300" Width="400" ResizeMode="NoResize">
+        Title="Editar" Height="300" Width="400" ResizeMode="NoResize" Icon="Imagenes/Editar.png">
     <Grid>
         <StackPanel>
             <TextBlock Text="ID:" Margin="10,0,10,0"/>

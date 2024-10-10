@@ -48,7 +48,7 @@ namespace Primera_interfaz
 
             var nuevoEmpleado = new Empleado
             {
-                IdEmpleado = empleadosList.Count + 1, // Aquí generamos el ID
+                IdEmpleado = empleadosList.Count + 1, 
                 NombreEmpleado = txtNombre.Text,
                 DireccionEmpleado = txtDireccion.Text,
                 CiudadEmpleado = txtCiudad.Text,
@@ -56,7 +56,7 @@ namespace Primera_interfaz
             };
 
             empleadosList.Add(nuevoEmpleado);
-            MessageBox.Show("Empleado agregado exitosamente!");
+            MessageBox.Show("Empleado agregado con éxito!");
             Close(); // Cerrar la ventana después de agregar
         }
     }

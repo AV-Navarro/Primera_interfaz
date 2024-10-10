@@ -20,30 +20,18 @@ namespace Primera_interfaz
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Lista en memoria para almacenar los empleados
-        private ObservableCollection<Empleado> empleados;
-        
+        // Declarar el ViewModel como campo de clase
+        private ViewModel viewModel;
+
+
         public MainWindow()
         {
             InitializeComponent();
-            empleados = new ObservableCollection<Empleado>();
 
-
-            // Asignamos la lista al DataGrid
-            DataGridXAML.ItemsSource = null;
-            DataGridXAML.ItemsSource = empleados;
-
-            // Crear un empleado al iniciar (opcional)
-            Empleado primerEmpleado = new Empleado
-            {
-                IdEmpleado = 1,
-                NombreEmpleado = "María López",
-                DireccionEmpleado = "Av. Principal 456",
-                CiudadEmpleado = "Barcelona",
-                PaisEmpleado = "España"
-            };
-
-            empleados.Add(primerEmpleado); // Agregar el empleado a la lista
+            // Instanciamos el ViewModel y lo asignamos como DataContext
+            viewModel = new ViewModel();
+            this.DataContext = viewModel;          
+          
         }
 
         // Método filtrar búsqueda
@@ -53,7 +41,7 @@ namespace Primera_interfaz
             string textoBusqueda = txtBusqueda.Text.ToLower();
 
             //Filtrado
-            var empleadoFiltrados = empleados.Where(emp => emp.NombreEmpleado.ToLower().Contains(textoBusqueda)).ToList();
+            var empleadoFiltrados = viewModel.Empleados.Where(emp => emp.NombreEmpleado.ToLower().Contains(textoBusqueda)).ToList();
 
             //Actualizo el DataGRid
             DataGridXAML.ItemsSource = null;
@@ -64,7 +52,7 @@ namespace Primera_interfaz
         private void CrearCliente(object sender, RoutedEventArgs e)
         {
             // Añadimos un nuevo empleado
-            ClienteWindow1 clienteWindow = new ClienteWindow1(empleados);
+            ClienteWindow1 clienteWindow = new ClienteWindow1(viewModel.Empleados);
             clienteWindow.ShowDialog(); // Muestra la ventana como un diálogo modal
 
             DataGridXAML.Items.Refresh();
@@ -101,7 +89,7 @@ namespace Primera_interfaz
         {
             if (DataGridXAML.SelectedItem is Empleado empleadoSeleccionado)
             {
-                Editar editarWindow = new Editar(empleadoSeleccionado, empleados);
+                Editar editarWindow = new Editar(empleadoSeleccionado, viewModel.Empleados);
                 editarWindow.ShowDialog();
 
                 DataGridXAML.Items.Refresh();
@@ -140,15 +128,11 @@ namespace Primera_interfaz
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning);
 
-                DataGridXAML.Items.Refresh();
-
-                // Deseleccionar el empleado 
-                DataGridXAML.SelectedItem = null;
-
+              
                 // Si el usuario selecciona "Sí", procedemos con la eliminación
                 if (resultado == MessageBoxResult.Yes)
                 {
-                    empleados.Remove(empleadoSeleccionado);
+                    viewModel.Empleados.Remove(empleadoSeleccionado);
                     DataGridXAML.Items.Refresh();
 
                     // Deseleccionar el empleado después de eliminar

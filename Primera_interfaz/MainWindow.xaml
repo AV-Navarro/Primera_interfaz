@@ -15,9 +15,9 @@
 
         <!-- TextBox para filtrar la lista -->
         <!-- TextChanged="TxtBusqueda_TextChanged" metódo a declarar para manejar los cambio-->
-        <TextBox x:Name="txtBusqueda" Margin="655,10,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"
+        <TextBox x:Name="txtBusqueda" Margin="0,10,10,0" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top"
          TextWrapping="Wrap" TextChanged="TxtBusqueda_TextChanged"/>
-        <Image Source="/Imagenes/lupa.png" Width="20" Height="20" VerticalAlignment="Top" Margin="500,10,0,0" />
+        <Image Source="/Imagenes/search.png" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10,10,130,0" />
 
 
         <!-- DataGrid para mostrar los empleados -->
@@ -26,8 +26,8 @@
         <!-- No permite la edición de las celdas dentro del DataGrid -->
         <!-- Solo se puede seleccionar una fila a la vez -->
         <!-- Evento del raton clikeo dentro de la tabla y deselecciona-->
-        
-        <DataGrid x:Name="DataGridXAML" AutoGenerateColumns="False" Grid.Row="0" Margin="10,40,10,0" IsReadOnly="True" SelectionMode="Single" MouseDown="DataGridXAML_MouseDown"> 
+
+        <DataGrid x:Name="DataGridXAML" ItemsSource="{Binding Empleados}" AutoGenerateColumns="False" Grid.Row="0" Margin="10,50,10,0" IsReadOnly="True" SelectionMode="Single" MouseDown="DataGridXAML_MouseDown"> 
 
             <!--Color Fuente / Estilo de Columna-->
             <DataGrid.Resources>
@@ -38,6 +38,7 @@
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="FontSize" Value="12"/>
                     <Setter Property="FontFamily" Value="Ariel Black"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 </Style>
             </DataGrid.Resources>
 

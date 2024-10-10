@@ -9,48 +9,36 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Imagenes\actualizar.PNG" />
     <None Remove="Imagenes\cliente.PNG" />
-    <None Remove="Imagenes\crear.PNG" />
     <None Remove="Imagenes\create.png" />
-    <None Remove="Imagenes\eliminar.PNG" />
+    <None Remove="Imagenes\Editar.png" />
     <None Remove="Imagenes\interfaz.PNG" />
-    <None Remove="Imagenes\leer.PNG" />
-    <None Remove="Imagenes\lupa.PNG" />
     <None Remove="Imagenes\papelera.png" />
     <None Remove="Imagenes\read.png" />
+    <None Remove="Imagenes\search.png" />
     <None Remove="Imagenes\update.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Imagenes\actualizar.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Imagenes\cliente.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Imagenes\crear.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\create.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagenes\eliminar.PNG">
+    <Content Include="Imagenes\Editar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\interfaz.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Imagenes\leer.PNG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Imagenes\lupa.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\papelera.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\read.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\update.png">
