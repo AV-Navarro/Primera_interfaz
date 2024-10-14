@@ -23,6 +23,7 @@ namespace Primera_interfaz
     {
         private Empleado empleadoSeleccionado;
         private ObservableCollection<Empleado> empleadosList;
+        private Conexion conexion;
         
 
         public Editar(Empleado empleado, ObservableCollection<Empleado> empleados)
@@ -31,6 +32,7 @@ namespace Primera_interfaz
 
             this.empleadoSeleccionado = empleado;
             this.empleadosList = empleados;
+            this.conexion = new Conexion();
 
             // Precargo los datos del empleado en los TextBox
             txtId.Text = empleadoSeleccionado.IdEmpleado.ToString();
@@ -47,6 +49,8 @@ namespace Primera_interfaz
             empleadoSeleccionado.DireccionEmpleado = txtDireccion.Text;
             empleadoSeleccionado.CiudadEmpleado = txtCiudad.Text;
             empleadoSeleccionado.PaisEmpleado = txtPais.Text;                        
+
+            conexion.Editar(empleadoSeleccionado);
 
             MessageBox.Show("Empleado editado con éxito!");
             Close(); // Cerrar la ventana después de editar

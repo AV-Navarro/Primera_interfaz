@@ -52,7 +52,7 @@ namespace Primera_interfaz
         private void CrearCliente(object sender, RoutedEventArgs e)
         {
             // Añadimos un nuevo empleado
-            ClienteWindow1 clienteWindow = new ClienteWindow1(viewModel.Empleados);
+            ClienteWindow1 clienteWindow = new ClienteWindow1(viewModel.Empleados, viewModel._conexion);
             clienteWindow.ShowDialog(); // Muestra la ventana como un diálogo modal
 
             DataGridXAML.Items.Refresh();
@@ -132,7 +132,7 @@ namespace Primera_interfaz
                 // Si el usuario selecciona "Sí", procedemos con la eliminación
                 if (resultado == MessageBoxResult.Yes)
                 {
-                    viewModel.Empleados.Remove(empleadoSeleccionado);
+                    viewModel.EliminarEmpleado(empleadoSeleccionado);
                     DataGridXAML.Items.Refresh();
 
                     // Deseleccionar el empleado después de eliminar

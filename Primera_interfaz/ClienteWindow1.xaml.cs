@@ -24,14 +24,15 @@ namespace Primera_interfaz
     public partial class ClienteWindow1 : Window
     {
         private ObservableCollection<Empleado> empleadosList;
+        private Conexion conexion;
         
-        public ClienteWindow1(ObservableCollection<Empleado> empleados)
+        public ClienteWindow1(ObservableCollection<Empleado> empleados, Conexion conexion)
         {
             InitializeComponent();
             this.empleadosList = empleados;
+            this.conexion = conexion;
 
-            // Asigno el próximo ID disponible
-            txtId.Text = (empleados.Count + 1).ToString();
+            
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
@@ -48,12 +49,14 @@ namespace Primera_interfaz
 
             var nuevoEmpleado = new Empleado
             {
-                IdEmpleado = empleadosList.Count + 1, 
+               
                 NombreEmpleado = txtNombre.Text,
                 DireccionEmpleado = txtDireccion.Text,
                 CiudadEmpleado = txtCiudad.Text,
                 PaisEmpleado = txtPais.Text
             };
+
+            conexion.AddEmpleado(nuevoEmpleado);
 
             empleadosList.Add(nuevoEmpleado);
             MessageBox.Show("Empleado agregado con éxito!");
