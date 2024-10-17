@@ -26,23 +26,10 @@ namespace Primera_interfaz.Clases
 
         public void AgregarEmpleado(Empleado nuevoEmpleado)
         {
-            _conexion.AddEmpleado(nuevoEmpleado);
-
-            nuevoEmpleado.IdEmpleado = GetLastInsterId();
+            _conexion.AddEmpleado(nuevoEmpleado);           
 
             Empleados.Add(nuevoEmpleado);
-        }
-        // Método para obtener el último ID insertado (si es necesario)
-        private int GetLastInsterId()
-        {
-            // Aquí podrías agregar la lógica para obtener el último ID insertado
-            // Si la base de datos está configurada para que el ID se incremente automáticamente,
-            // entonces esta lógica puede no ser necesaria, ya que el ID se generará automáticamente.
-            // Se puede realizar una consulta para obtener el último ID en caso de ser necesario.
-            return Empleados.Count + 1; // Esto puede variar dependiendo de cómo manejes los IDs
-        }
-
-
+        }       
 
         public void EditarEmpleado(Empleado empleado)
         {
@@ -82,14 +69,6 @@ namespace Primera_interfaz.Clases
             }
         }
 
-        // Método para obtener el último ID insertado (si es necesario)
-        public int GetLastInsertId()
-        {
-            // Aquí podrías agregar la lógica para obtener el último ID insertado
-            // Si la base de datos está configurada para que el ID se incremente automáticamente,
-            // entonces esta lógica puede no ser necesaria, ya que el ID se generará automáticamente.
-            // Se puede realizar una consulta para obtener el último ID en caso de ser necesario.
-            return Empleados.Count + 1; // Esto puede variar dependiendo de cómo manejes los IDs
-        }
+        
     }
 }

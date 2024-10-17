@@ -25,20 +25,21 @@ namespace Primera_interfaz
     {
         private ObservableCollection<Empleado> empleadosList;
         private Conexion conexion;
-        
+
         public ClienteWindow1(ObservableCollection<Empleado> empleados, Conexion conexion)
         {
             InitializeComponent();
             this.empleadosList = empleados;
             this.conexion = conexion;
 
-            
+
         }
 
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {
             //Verificar que no esten vacíos los campos
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+            if (string.IsNullOrWhiteSpace(txtId.Text) ||
+                string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text) ||
                 string.IsNullOrWhiteSpace(txtCiudad.Text) ||
                 string.IsNullOrWhiteSpace(txtPais.Text))
@@ -49,7 +50,7 @@ namespace Primera_interfaz
 
             var nuevoEmpleado = new Empleado
             {
-               
+                IdEmpleado = int.Parse(txtId.Text),
                 NombreEmpleado = txtNombre.Text,
                 DireccionEmpleado = txtDireccion.Text,
                 CiudadEmpleado = txtCiudad.Text,

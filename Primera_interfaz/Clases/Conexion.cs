@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Media.Media3D;
+using System.Windows;
 
 
 namespace Primera_interfaz.Clases
@@ -13,6 +14,34 @@ namespace Primera_interfaz.Clases
     public class Conexion
     {
         private string conexionString = "Data Source=Empleados.db;Version=3;";
+
+        public Conexion()
+        {
+            CrearTablaSiNoExiste(); // Llama al método en el constructor
+        }
+
+        // Método que crea la tabla si no existe
+        private void CrearTablaSiNoExiste() 
+        {
+            using (var conexion = new SQLiteConnection(conexionString)) 
+            {
+                conexion.Open();
+
+                //SQL para crea tabla
+                string query = @"
+                CREATE TABLE IF NOT EXISTS Empleado (
+                    Id INTEGER PRIMARY KEY,
+                    Nombre TEXT NOT NULL,
+                    Direccion TEXT NOT NULL,
+                    Ciudad TEXT NOT NULL,
+                    Pais TEXT NOT NULL
+                );";
+                using (var command = new SQLiteCommand(query, conexion))
+                {
+                    command.ExecuteNonQuery(); // Ejecuta el comando
+                }
+            }
+        }
 
         public List<Empleado> GetAllEmpleados()
         {
@@ -25,15 +54,17 @@ namespace Primera_interfaz.Clases
                 SQLiteCommand cmd = new SQLiteCommand(query, connection);
                 cmd.CommandType = System.Data.CommandType.Text;
                 {
-                    using (SQLiteDataReader dr = cmd.ExecuteReader()) {
-                        while (dr.Read()) {
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
                             oLista.Add(new Empleado()
                             {
-                                    IdEmpleado = int.Parse(dr["Id"].ToString()),
-                                    NombreEmpleado = dr["Nombre"].ToString(),
-                                    DireccionEmpleado = dr["Direccion"].ToString(),
-                                    CiudadEmpleado = dr["Ciudad"].ToString(),
-                                    PaisEmpleado = dr["Pais"].ToString(),
+                                IdEmpleado = int.Parse(dr["Id"].ToString()),
+                                NombreEmpleado = dr["Nombre"].ToString(),
+                                DireccionEmpleado = dr["Direccion"].ToString(),
+                                CiudadEmpleado = dr["Ciudad"].ToString(),
+                                PaisEmpleado = dr["Pais"].ToString(),
                             });
                         }
                     }
@@ -116,6 +147,3 @@ namespace Primera_interfaz.Clases
 
 }
 
-
-
- 
